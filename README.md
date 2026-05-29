@@ -16,11 +16,11 @@ The documentation site covers quick start, Docker Compose recipes, Nginx/PHP con
 ## Quick start
 
 ```bash
-docker build -t ruseler/alpine-php-webserver:php84 .
+docker build -t ruseler/alpine-php-webserver:php83 .
 ```
 
 ```bash
-docker run --rm -p 8080:8080 ruseler/alpine-php-webserver:php84
+docker run --rm -p 8080:8080 ruseler/alpine-php-webserver:php83
 ```
 
 Open <http://localhost:8080/> to see `phpinfo()`, or <http://localhost:8080/test.html> for the static probe.
@@ -28,7 +28,7 @@ Open <http://localhost:8080/> to see `phpinfo()`, or <http://localhost:8080/test
 Mount your own code:
 
 ```bash
-docker run --rm -p 8080:8080 -v "$PWD/php:/var/www/html" erseco/alpine-php-webserver
+docker run --rm -p 8080:8080 -v "$PWD/php:/var/www/html" ruseler/alpine-php-webserver:php83
 ```
 
 Compose:
@@ -36,7 +36,7 @@ Compose:
 ```yaml
 services:
   web:
-    image: ruseler/alpine-php-webserver:php84
+    image: ruseler/alpine-php-webserver:php83
     ports:
       - "8080:8080"
     volumes:

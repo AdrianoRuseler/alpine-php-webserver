@@ -9,41 +9,41 @@ SHELL ["/bin/ash", "-eo", "pipefail", "-c"]
 
 # Install Moodle-required packages
 RUN apk --no-cache add \
-        php84 \
-        php84-ctype \
-        php84-curl \
-        php84-dom \
-        php84-exif \
-        php84-fileinfo \
-        php84-fpm \
-        php84-gd \
-        php84-iconv \
-        php84-intl \
-        php84-ldap \
-        php84-mbstring \
-        php84-mysqli \
-        php84-opcache \
-        php84-openssl \
-        php84-pecl-apcu \
-        php84-pecl-redis \
-        php84-pecl-igbinary \
-        php84-pdo \
-        php84-pdo_mysql \
-        php84-pgsql \
-        php84-phar \
-        php84-posix \
-        php84-session \
-        php84-simplexml \
-        php84-soap \
-        php84-sodium \
-        php84-sqlite3 \
-        php84-tokenizer \
-        php84-xml \
-        php84-xmlreader \
-        php84-xmlwriter \
-        php84-xsl \
-        php84-zip \
-        php84-zlib \
+        php83 \
+        php83-ctype \
+        php83-curl \
+        php83-dom \
+        php83-exif \
+        php83-fileinfo \
+        php83-fpm \
+        php83-gd \
+        php83-iconv \
+        php83-intl \
+        php83-ldap \
+        php83-mbstring \
+        php83-mysqli \
+        php83-opcache \
+        php83-openssl \
+        php83-pecl-apcu \
+        php83-pecl-redis \
+        php83-pecl-igbinary \
+        php83-pdo \
+        php83-pdo_mysql \
+        php83-pgsql \
+        php83-phar \
+        php83-posix \
+        php83-session \
+        php83-simplexml \
+        php83-soap \
+        php83-sodium \
+        php83-sqlite3 \
+        php83-tokenizer \
+        php83-xml \
+        php83-xmlreader \
+        php83-xmlwriter \
+        php83-xsl \
+        php83-zip \
+        php83-zlib \
         nginx \
         runit \
         curl \
