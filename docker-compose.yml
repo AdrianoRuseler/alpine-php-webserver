@@ -1,0 +1,10 @@
+services:
+  web:
+    image: ruseler/alpine-php-webserver:php84
+    # Build the image from the Dockerfile in the current directory
+    # build: .    
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./php:/var/www/html
+    restart: unless-stopped
