@@ -7,46 +7,47 @@ LABEL org.opencontainers.image.authors="Ernesto Serrano <info@ernesto.es>" \
 # Set pipefail to catch errors in piped commands
 SHELL ["/bin/ash", "-eo", "pipefail", "-c"]
 
-# Install Moodle-required packages
+# Install Moodle-required packages and essential system utilities (Updated for PHP 8.5)
 RUN apk --no-cache add \
-        php84 \
-        php84-ctype \
-        php84-curl \
-        php84-dom \
-        php84-exif \
-        php84-fileinfo \
-        php84-fpm \
-        php84-gd \
-        php84-iconv \
-        php84-intl \
-        php84-ldap \
-        php84-mbstring \
-        php84-mysqli \
-        php84-opcache \
-        php84-openssl \
-        php84-pecl-apcu \
-        php84-pecl-redis \
-        php84-pecl-igbinary \
-        php84-pdo \
-        php84-pdo_mysql \
-        php84-pgsql \
-        php84-phar \
-        php84-posix \
-        php84-session \
-        php84-simplexml \
-        php84-soap \
-        php84-sodium \
-        php84-sqlite3 \
-        php84-tokenizer \
-        php84-xml \
-        php84-xmlreader \
-        php84-xmlwriter \
-        php84-xsl \
-        php84-zip \
-        php84-zlib \
+        php85 \
+        php85-ctype \
+        php85-curl \
+        php85-dom \
+        php85-exif \
+        php85-fileinfo \
+        php85-fpm \
+        php85-gd \
+        php85-iconv \
+        php85-intl \
+        php85-ldap \
+        php85-mbstring \
+        php85-mysqli \
+        php85-openssl \
+        php85-pecl-apcu \
+        php85-pecl-redis \
+        php85-pecl-igbinary \
+        php85-pdo \
+        php85-pdo_mysql \
+        php85-pgsql \
+        php85-phar \
+        php85-posix \
+        php85-session \
+        php85-simplexml \
+        php85-soap \
+        php85-sodium \
+        php85-sqlite3 \
+        php85-tokenizer \
+        php85-xml \
+        php85-xmlreader \
+        php85-xmlwriter \
+        php85-xsl \
+        php85-zip \
+        php85-zlib \
         nginx \
         runit \
         curl \
+        tar \
+        gzip \
 # Bring in gettext so we can get `envsubst`
     && apk add --no-cache --virtual .gettext gettext \
     && mv /usr/bin/envsubst /tmp/ \
@@ -63,7 +64,6 @@ RUN apk --no-cache add \
 # Remove default server definition
     && rm -f /etc/nginx/http.d/default.conf \
 # Create crucial Moodle directories and give permissions to nobody
-# Note: /var/moodledata should be a persistent volume, but we ensure its base exists here
     && mkdir -p /run /var/lib/nginx /var/www/html /var/log/nginx /var/moodledata \
     && chown -R nobody:nobody /run /var/lib/nginx /var/www/html /var/log/nginx /var/moodledata
 
@@ -89,7 +89,6 @@ HEALTHCHECK --interval=30s --timeout=10s --start-period=10s --retries=3 \
 # Production-tuned Moodle Configurations
 ENV nginx_root_directory=/var/www/html \
     client_max_body_size=512M \
-    clear_env=no \
     allow_url_fopen=On \
     allow_url_include=Off \
     display_errors=Off \
@@ -113,7 +112,7 @@ ENV nginx_root_directory=/var/www/html \
     opcache_enable_cli=1 \
     opcache_memory_consumption=512 \
     opcache_interned_strings_buffer=64 \
-    opcache_max_accelerated_files=60000 \
+    opcache_max_accelerated_files=65407 \
     opcache_validate_timestamps=1 \
     opcache_revalidate_freq=60 \
     opcache_save_comments=1 \

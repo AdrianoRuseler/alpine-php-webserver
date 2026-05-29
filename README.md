@@ -16,11 +16,11 @@ The documentation site covers quick start, Docker Compose recipes, Nginx/PHP con
 ## Quick start
 
 ```bash
-docker build -t ruseler/alpine-php-webserver:php84 .
+docker build -t ruseler/alpine-php-webserver:php85 .
 ```
 
 ```bash
-docker run --rm -p 8080:8080 ruseler/alpine-php-webserver:php84
+docker run --rm -p 8080:8080 ruseler/alpine-php-webserver:php85
 ```
 
 Open <http://localhost:8080/> to see `phpinfo()`, or <http://localhost:8080/test.html> for the static probe.
@@ -36,7 +36,7 @@ Compose:
 ```yaml
 services:
   web:
-    image: ruseler/alpine-php-webserver:php84
+    image: ruseler/alpine-php-webserver:php85
     ports:
       - "8080:8080"
     volumes:
@@ -64,7 +64,7 @@ services:
 - Trusted-proxy real IP support (`REAL_IP_FROM`, Cloudflare, Tunnel)
 - `DISABLE_DEFAULT_LOCATION` for full routing control
 - Custom Nginx snippets via `/etc/nginx/conf.d/` and `/etc/nginx/server-conf.d/`
-- Custom PHP settings via environment variables or `/etc/php84/conf.d/*.ini`
+- Custom PHP settings via environment variables or `/etc/php85/conf.d/*.ini`
 - Extra daemons via `runit` (`/etc/service/<name>/run`)
 - Startup scripts via `/docker-entrypoint-init.d/`
 - Non-privileged `nobody` user; logs on `stdout` / `stderr`
