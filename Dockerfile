@@ -1,4 +1,4 @@
-ARG BASE_IMAGE=alpine:latest
+ARG BASE_IMAGE=alpine:3.22
 FROM ${BASE_IMAGE}
 
 LABEL org.opencontainers.image.authors="Ernesto Serrano <info@ernesto.es>" \
@@ -9,41 +9,41 @@ SHELL ["/bin/ash", "-eo", "pipefail", "-c"]
 
 # Install Moodle-required packages
 RUN apk --no-cache add \
-        php84 \
-        php84-ctype \
-        php84-curl \
-        php84-dom \
-        php84-exif \
-        php84-fileinfo \
-        php84-fpm \
-        php84-gd \
-        php84-iconv \
-        php84-intl \
-        php84-ldap \
-        php84-mbstring \
-        php84-mysqli \
-        php84-opcache \
-        php84-openssl \
-        php84-pecl-apcu \
-        php84-pecl-redis \
-        php84-pecl-igbinary \
-        php84-pdo \
-        php84-pdo_mysql \
-        php84-pgsql \
-        php84-phar \
-        php84-posix \
-        php84-session \
-        php84-simplexml \
-        php84-soap \
-        php84-sodium \
-        php84-sqlite3 \
-        php84-tokenizer \
-        php84-xml \
-        php84-xmlreader \
-        php84-xmlwriter \
-        php84-xsl \
-        php84-zip \
-        php84-zlib \
+        php82 \
+        php82-ctype \
+        php82-curl \
+        php82-dom \
+        php82-exif \
+        php82-fileinfo \
+        php82-fpm \
+        php82-gd \
+        php82-iconv \
+        php82-intl \
+        php82-ldap \
+        php82-mbstring \
+        php82-mysqli \
+        php82-opcache \
+        php82-openssl \
+        php82-pecl-apcu \
+        php82-pecl-redis \
+        php82-pecl-igbinary \
+        php82-pdo \
+        php82-pdo_mysql \
+        php82-pgsql \
+        php82-phar \
+        php82-posix \
+        php82-session \
+        php82-simplexml \
+        php82-soap \
+        php82-sodium \
+        php82-sqlite3 \
+        php82-tokenizer \
+        php82-xml \
+        php82-xmlreader \
+        php82-xmlwriter \
+        php82-xsl \
+        php82-zip \
+        php82-zlib \
         nginx \
         runit \
         curl \

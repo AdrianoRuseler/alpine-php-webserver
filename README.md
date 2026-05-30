@@ -2,9 +2,9 @@
 
 [![Docker Pulls](https://img.shields.io/docker/pulls/ruseler/alpine-php-webserver.svg)](https://hub.docker.com/r/ruseler/alpine-php-webserver/)
 ![Docker Image Size](https://img.shields.io/docker/image-size/ruseler/alpine-php-webserver)
-![alpine 3.23](https://img.shields.io/badge/alpine-3.23-brightgreen.svg)
+![alpine 3.22](https://img.shields.io/badge/alpine-3.22-brightgreen.svg)
 ![nginx 1.28](https://img.shields.io/badge/nginx-1.28-brightgreen.svg)
-![php 8.4](https://img.shields.io/badge/php-8.4-brightgreen.svg)
+![php 8.2](https://img.shields.io/badge/php-8.2-brightgreen.svg)
 ![License MIT](https://img.shields.io/badge/license-MIT-blue.svg)
 
 A minimal **Nginx + PHP-FPM** Docker image built on [Alpine Linux](https://www.alpinelinux.org/) — ~25 MB, multi-arch, configured entirely through environment variables.
@@ -16,11 +16,11 @@ The documentation site covers quick start, Docker Compose recipes, Nginx/PHP con
 ## Quick start
 
 ```bash
-docker build -t ruseler/alpine-php-webserver:php84 .
+docker build -t ruseler/alpine-php-webserver:php82 .
 ```
 
 ```bash
-docker run --rm -p 8080:8080 ruseler/alpine-php-webserver:php84
+docker run --rm -p 8080:8080 ruseler/alpine-php-webserver:php82
 ```
 
 ```bash
@@ -40,7 +40,7 @@ Compose:
 ```yaml
 services:
   web:
-    image: ruseler/alpine-php-webserver:php84
+    image: ruseler/alpine-php-webserver:php82
     ports:
       - "8080:8080"
     volumes:
@@ -68,7 +68,7 @@ services:
 - Trusted-proxy real IP support (`REAL_IP_FROM`, Cloudflare, Tunnel)
 - `DISABLE_DEFAULT_LOCATION` for full routing control
 - Custom Nginx snippets via `/etc/nginx/conf.d/` and `/etc/nginx/server-conf.d/`
-- Custom PHP settings via environment variables or `/etc/php84/conf.d/*.ini`
+- Custom PHP settings via environment variables or `/etc/php82/conf.d/*.ini`
 - Extra daemons via `runit` (`/etc/service/<name>/run`)
 - Startup scripts via `/docker-entrypoint-init.d/`
 - Non-privileged `nobody` user; logs on `stdout` / `stderr`
