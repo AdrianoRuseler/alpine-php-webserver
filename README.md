@@ -4,12 +4,12 @@
 ![Docker Image Size](https://img.shields.io/docker/image-size/ruseler/alpine-php-webserver)
 ![alpine 3.23](https://img.shields.io/badge/alpine-3.23-brightgreen.svg)
 ![nginx 1.28](https://img.shields.io/badge/nginx-1.28-brightgreen.svg)
-![php 8.4](https://img.shields.io/badge/php-8.3-brightgreen.svg)
+![php 8.3](https://img.shields.io/badge/php-8.3-brightgreen.svg)
 ![License MIT](https://img.shields.io/badge/license-MIT-blue.svg)
 
 A minimal **Nginx + PHP-FPM** Docker image built on [Alpine Linux](https://www.alpinelinux.org/) — ~25 MB, multi-arch, configured entirely through environment variables.
 
-> 📚 **Full documentation: <https://erseco.github.io/alpine-php-webserver/>**
+> 📚 **Full documentation: <https://ruseleredu.github.io/moodle-docs/dev/alpine-php-webserver>**
 
 The documentation site covers quick start, Docker Compose recipes, Nginx/PHP configuration, reverse proxy and trusted-IP setups (Traefik, Nginx, Cloudflare, Cloudflare Tunnel), a complete environment variable reference, Composer/build recipes, how to extend the image with `runit` daemons and init scripts, the healthcheck and logging story, and a troubleshooting section built from the most frequent support questions.
 
