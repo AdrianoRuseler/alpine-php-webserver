@@ -32,7 +32,7 @@ Open <http://localhost:8080/> to see `phpinfo()`, or <http://localhost:8080/test
 Mount your own code:
 
 ```bash
-docker run --rm -p 8080:8080 -v "$PWD/php:/var/www/html" erseco/alpine-php-webserver
+docker run --rm -p 8080:8080 -v "$PWD/php:/var/www/html" ruseler/alpine-php-webserver:php82
 ```
 
 Compose:
@@ -47,17 +47,6 @@ services:
       - ./php:/var/www/html
     restart: unless-stopped
 ```
-
-## Supported tags and respective Dockerfile links
-
-<!-- supported-tags:start -->
-- `latest`, `3`, `3.23`, `3.23.4` ([Dockerfile](https://github.com/erseco/alpine-php-webserver/blob/3.23.4/Dockerfile))
-- `3.22`, `3.22.2` ([Dockerfile](https://github.com/erseco/alpine-php-webserver/blob/3.22.2/Dockerfile))
-- `3.21`, `3.21.5` ([Dockerfile](https://github.com/erseco/alpine-php-webserver/blob/3.21.5/Dockerfile))
-- `3.20`, `3.20.9` ([Dockerfile](https://github.com/erseco/alpine-php-webserver/blob/3.20.9/Dockerfile))
-<!-- supported-tags:end -->
-
-> **Note**: The `main` branch ([Dockerfile](https://github.com/erseco/alpine-php-webserver/blob/main/Dockerfile)) is automatically pushed with the tag **`beta`**. Use this tag for testing purposes before stable releases are published.
 
 ## Key features
 
@@ -144,12 +133,6 @@ The full, searchable documentation lives at **<https://erseco.github.io/alpine-p
 - [Healthcheck & logs](https://erseco.github.io/alpine-php-webserver/healthcheck-logs/)
 - [Troubleshooting](https://erseco.github.io/alpine-php-webserver/troubleshooting/)
 - [FAQ](https://erseco.github.io/alpine-php-webserver/faq/)
-
-## Contributing
-
-Issues and pull requests are welcome: <https://github.com/erseco/alpine-php-webserver/issues>.
-
-Documentation sources live under [`docs/`](docs/) and are built with [Zensical](https://zensical.org/) via the `docs.yml` GitHub Actions workflow.
 
 ## License
 
