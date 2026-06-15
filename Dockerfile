@@ -30,6 +30,7 @@ RUN apk --no-cache add \
         php82-pdo \
         php82-pdo_mysql \
         php82-pgsql \
+        php82-pdo_pgsql \
         php82-phar \
         php82-posix \
         php82-session \
