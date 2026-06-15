@@ -29,6 +29,7 @@ RUN apk --no-cache add \
         php85-pdo \
         php85-pdo_mysql \
         php85-pgsql \
+        php85-pdo_pgsql \
         php85-phar \
         php85-posix \
         php85-session \
