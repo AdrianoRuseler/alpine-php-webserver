@@ -30,6 +30,7 @@ RUN apk --no-cache add \
         php84-pdo \
         php84-pdo_mysql \
         php84-pgsql \
+        php84-pdo_pgsql \
         php84-phar \
         php84-posix \
         php84-session \
