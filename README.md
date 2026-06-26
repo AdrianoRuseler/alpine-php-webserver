@@ -23,10 +23,6 @@ docker build -t ruseler/alpine-php-webserver:php82 .
 docker run --rm -p 8080:8080 ruseler/alpine-php-webserver:php82
 ```
 
-```bash
-docker build -t ruseler/alpine-php-webserver:latest .
-```
-
 Open <http://localhost:8080/> to see `phpinfo()`, or <http://localhost:8080/test.html> for the static probe.
 
 Mount your own code:
@@ -51,7 +47,7 @@ services:
 ## Key features
 
 - Compact image (~25 MB) built on Alpine Linux
-- PHP 8.4 FPM with `ondemand` process manager — idles near-zero CPU
+- PHP 8.2 FPM with `ondemand` process manager — idles near-zero CPU
 - Unix-socket FastCGI between Nginx and PHP-FPM
 - Healthcheck on `/fpm-ping` (localhost-only by design)
 - Trusted-proxy real IP support (`REAL_IP_FROM`, Cloudflare, Tunnel)
@@ -120,19 +116,19 @@ The most-requested reference. The full grouped reference (with OPcache, real IP,
 
 ## Documentation
 
-The full, searchable documentation lives at **<https://erseco.github.io/alpine-php-webserver/>**:
+The full, searchable documentation lives at **<https://ruseleredu.github.io/moodle-docs/dev/category/alpine-php-webserver/>**:
 
-- [Quick Start](https://erseco.github.io/alpine-php-webserver/quick-start/)
-- [Docker Compose examples](https://erseco.github.io/alpine-php-webserver/docker-compose/)
-- [Nginx configuration](https://erseco.github.io/alpine-php-webserver/nginx/)
-- [PHP configuration](https://erseco.github.io/alpine-php-webserver/php/)
-- [Environment variables reference](https://erseco.github.io/alpine-php-webserver/environment-variables/)
-- [Reverse proxy & trusted IPs](https://erseco.github.io/alpine-php-webserver/reverse-proxy/)
-- [Composer & building your own image](https://erseco.github.io/alpine-php-webserver/composer/)
-- [Extending the image](https://erseco.github.io/alpine-php-webserver/extending/)
-- [Healthcheck & logs](https://erseco.github.io/alpine-php-webserver/healthcheck-logs/)
-- [Troubleshooting](https://erseco.github.io/alpine-php-webserver/troubleshooting/)
-- [FAQ](https://erseco.github.io/alpine-php-webserver/faq/)
+- [Quick Start](https://ruseleredu.github.io/moodle-docs/dev/alpine-php-webserver/quick-start)
+- [Docker Compose examples](https://ruseleredu.github.io/moodle-docs/dev/alpine-php-webserver/docker-compose/)
+- [Nginx configuration](https://ruseleredu.github.io/moodle-docs/dev/alpine-php-webserver/nginx/)
+- [PHP configuration](https://ruseleredu.github.io/moodle-docs/dev/alpine-php-webserver/php/)
+- [Environment variables reference](https://ruseleredu.github.io/moodle-docs/dev/alpine-php-webserver/environment-variables/)
+- [Reverse proxy & trusted IPs](https://ruseleredu.github.io/moodle-docs/dev/alpine-php-webserver/reverse-proxy/)
+- [Composer & building your own image](https://ruseleredu.github.io/moodle-docs/dev/alpine-php-webserver/composer/)
+- [Extending the image](https://ruseleredu.github.io/moodle-docs/dev/alpine-php-webserver/extending/)
+- [Healthcheck & logs](https://ruseleredu.github.io/moodle-docs/dev/alpine-php-webserver/healthcheck-logs/)
+- [Troubleshooting](https://ruseleredu.github.io/moodle-docs/dev/alpine-php-webserver/troubleshooting/)
+- [FAQ](https://ruseleredu.github.io/moodle-docs/dev/alpine-php-webserver/faq/)
 
 ## License
 
