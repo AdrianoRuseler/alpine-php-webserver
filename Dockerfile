@@ -1,7 +1,7 @@
 ARG BASE_IMAGE=alpine:latest
 FROM ${BASE_IMAGE}
 
-LABEL org.opencontainers.image.authors="Ernesto Serrano <info@ernesto.es>" \
+LABEL ABEL org.opencontainers.image.authors="Adriano Ruseler<adrianoruseler@gmail.com>" \
       org.opencontainers.image.description="Lightweight container optimized for Moodle with Nginx & PHP-FPM based on Alpine Linux."
 
 # Set pipefail to catch errors in piped commands
@@ -61,6 +61,11 @@ RUN apk --no-cache add \
     && apk add --no-cache $runDeps \
     && apk del .gettext \
     && mv /tmp/envsubst /usr/local/bin/ \
+# Install Composer using php84 explicitly, so it's never at the mercy of
+# apk's generic `composer` package pulling in an unrelated php85 dependency
+    && curl -sS https://getcomposer.org/installer | php84 -- --install-dir=/usr/local/bin --filename=composer \
+    && ln -sf /usr/bin/php84 /usr/local/bin/php \
+    && ln -sf /usr/sbin/php-fpm84 /usr/bin/php \
 # Remove default server definition
     && rm -f /etc/nginx/http.d/default.conf \
 # Create crucial Moodle directories and give permissions to nobody
