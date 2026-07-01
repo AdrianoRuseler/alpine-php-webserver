@@ -1,12 +1,9 @@
 ARG BASE_IMAGE=alpine:latest
 FROM ${BASE_IMAGE}
-
-LABEL org.opencontainers.image.authors="Ernesto Serrano <info@ernesto.es>" \
+LABEL org.opencontainers.image.authors="Adriano Ruseler<adrianoruseler@gmail.com>" \
       org.opencontainers.image.description="Lightweight container optimized for Moodle with Nginx & PHP-FPM based on Alpine Linux."
-
 # Set pipefail to catch errors in piped commands
 SHELL ["/bin/ash", "-eo", "pipefail", "-c"]
-
 # Install Moodle-required packages
 RUN apk --no-cache add \
         php83 \
@@ -61,32 +58,30 @@ RUN apk --no-cache add \
     && apk add --no-cache $runDeps \
     && apk del .gettext \
     && mv /tmp/envsubst /usr/local/bin/ \
+# Install Composer using php83 explicitly, so it's never at the mercy of
+# apk's generic `composer` package pulling in an unrelated php85 dependency
+    && curl -sS https://getcomposer.org/installer | php83 -- --install-dir=/usr/local/bin --filename=composer \
+    && ln -sf /usr/bin/php83 /usr/local/bin/php \
+    && ln -sf /usr/sbin/php-fpm83 /usr/bin/php \
 # Remove default server definition
     && rm -f /etc/nginx/http.d/default.conf \
 # Create crucial Moodle directories and give permissions to nobody
 # Note: /var/moodledata should be a persistent volume, but we ensure its base exists here
     && mkdir -p /run /var/lib/nginx /var/www/html /var/log/nginx /var/moodledata \
     && chown -R nobody:nobody /run /var/lib/nginx /var/www/html /var/log/nginx /var/moodledata
-
 # Add configuration files
 COPY --chown=nobody rootfs/ /
-
 # Switch to use a non-root user
 USER nobody
-
 # Add application
 WORKDIR /var/www/html
-
 # Expose the port nginx is reachable on
 EXPOSE 8080
-
 # Let runit start nginx & php-fpm
 ENTRYPOINT ["/bin/docker-entrypoint.sh"]
-
 # Configure a healthcheck 
 HEALTHCHECK --interval=30s --timeout=10s --start-period=10s --retries=3 \
   CMD curl --silent --fail http://127.0.0.1:8080/fpm-ping || exit 1
-
 # Production-tuned Moodle Configurations
 ENV nginx_root_directory=/var/www/html \
     client_max_body_size=512M \
